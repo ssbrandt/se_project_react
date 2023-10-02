@@ -1,10 +1,11 @@
 import React from "react";
+import "./Footer.css";
 
 function Footer() {
   return (
     <footer className="footer">
-      <p className="footer__info">Developed by Sierra Brandt</p>
-      <p className="footer__date">2023</p>
+      <p className="footer__item">Developed by Sierra Brandt</p>
+      <p className="footer__item">2023</p>
     </footer>
   );
 }

@@ -1,0 +1,14 @@
+.weathercard {
+  display: flex;
+  max-width: 1360px;
+  width: 100%;
+  max-height: 80px;
+  background: url("../images/sunny.svg") center no-repeat;
+  margin-bottom: 40px;
+  border-radius: 12px;
+}
+
+.weathercard__temp {
+  /* fonts */
+  margin-left: 16px;
+}
