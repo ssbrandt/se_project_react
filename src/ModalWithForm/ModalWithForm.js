@@ -17,8 +17,12 @@ function ModalWithForm({
           className="modal__close"
           onClick={onClose}
         ></button>
-        <form>{children}</form>
-        <button type="submit">{buttonText}</button>
+        <form className="modal__form form" name={`${name}-form`} novalidate>
+          {children}
+        </form>
+        <button type="submit" className="form__submit">
+          {buttonText}
+        </button>
       </div>
     </div>
   );
