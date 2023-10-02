@@ -16,3 +16,8 @@
   column-gap: 20px;
   padding: 0;
 }
+
+.header__image {
+  width: 40px;
+  height: 40px;
+}

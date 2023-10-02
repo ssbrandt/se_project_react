@@ -41,10 +41,23 @@ const defaultClothingItems = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
   },
 ];
-function Main(props) {
+
+function Main({ weatherData }) {
+  const actualTemperature = weatherData.temperature;
+
+  const weatherType = () => {
+    if (actualTemperature >= 86) {
+      return "hot";
+    } else if (actualTemperature >= 66 && actualTemperature <= 85) {
+      return "warm";
+    } else if (actualTemperature <= 65) {
+      return "cold";
+    }
+  };
+
   return (
     <div className="main">
-      <WeatherCard />
+      <WeatherCard weatherData={weatherData} />
       <p className="main__weather-info">
         Today is 75 F / You may want to wear:{" "}
       </p>

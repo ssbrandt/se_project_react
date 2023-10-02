@@ -1,10 +1,12 @@
 import React from "react";
 import "./WeatherCard.css";
 
-function WeatherCard() {
+function WeatherCard({ weatherData }) {
   return (
     <div className="weathercard">
-      <p className="weathercard__temp">75 F</p>
+      <p className="weathercard__temp">
+        {Math.round(weatherData.temperature)}°F
+      </p>
     </div>
   );
 }
