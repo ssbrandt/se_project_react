@@ -16,6 +16,9 @@
   column-gap: 20px;
   padding: 0;
 }
+.header__button {
+  all: unset;
+}
 
 .header__image {
   width: 40px;

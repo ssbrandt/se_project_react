@@ -3,7 +3,7 @@ import React from "react";
 import logo from "../images/logo.svg";
 import avatar from "../images/Avatar.png";
 
-function Header({ weatherData }) {
+function Header({ weatherData, onCreateModal }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -23,7 +23,15 @@ function Header({ weatherData }) {
       </div>
       <div className="header__group">
         <ul className="header__items">
-          <li className="header__item">+ Add Clothes</li>
+          <li className="header__item">
+            <button
+              type="text"
+              className="header__button"
+              onClick={onCreateModal}
+            >
+              + Add Clothes
+            </button>
+          </li>
           <li className="header__item">Terrence Tegegne</li>
           <li className="header__item">
             <img src={avatar} alt="User Avatar" className="header__avatar" />

@@ -6,7 +6,7 @@ function ModalWithForm({
   name,
   children,
   buttonText = "Save",
-  onClose,
+  onCloseModal,
 }) {
   return (
     <div className={`modal modal_type_${name}`}>
@@ -15,9 +15,9 @@ function ModalWithForm({
         <button
           type="button"
           className="modal__close"
-          onClick={onClose}
+          onClick={onCloseModal}
         ></button>
-        <form className="modal__form form" name={`${name}-form`} novalidate>
+        <form className="modal__form form" name={`${name}-form`}>
           {children}
         </form>
         <button type="submit" className="form__submit">
