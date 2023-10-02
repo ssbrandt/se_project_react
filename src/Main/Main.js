@@ -59,13 +59,15 @@ function Main({ weatherData }) {
     <div className="main">
       <WeatherCard weatherData={weatherData} />
       <p className="main__weather-info">
-        Today is 75 F / You may want to wear:{" "}
+        Today is {Math.round(weatherData.temperature)}°F / You may want to wear:{" "}
       </p>
       <div>
         <ul className="main__cards">
-          {defaultClothingItems.map((item) => (
-            <ItemCard key={item._id} card={item} />
-          ))}
+          {defaultClothingItems
+            .filter((card) => card.weather === weatherType())
+            .map((item) => (
+              <ItemCard card={item} />
+            ))}
         </ul>
       </div>
     </div>
