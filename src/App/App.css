@@ -1,5 +1,19 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/CabinetGrotesk-Medium.woff") format(woff);
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  font-style: bold;
+  font-weight: 700;
+  src: url("../fonts/CabinetGrotesk-Bold.woff") format(woff);
+}
+
 .App {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Cabinet Grotesk", sans-serif;
   font-size: 16px;
   line-height: 20px;
   min-height: 100vh;

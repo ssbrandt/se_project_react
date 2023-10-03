@@ -5,6 +5,13 @@
   padding-bottom: 85px;
 }
 
+.main__weather-info {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
 .main__cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, 323px);
