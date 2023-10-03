@@ -7,11 +7,13 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { location, APIKey } from "../utils/constants";
 import { getWeatherData, filterWeatherData } from "../utils/WeatherAPI";
+import { defaultClothingItems } from "../utils/defaultClothingItems";
 
 function App() {
   const [weatherdata, setWeatherData] = React.useState({});
   const [activeModal, setActiveModal] = React.useState("");
   const [selectedCard, setSelectedCard] = React.useState({});
+  const [clothingCards, setClothingCards] = React.useState([]);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -25,7 +27,10 @@ function App() {
     setSelectedCard(card);
     setActiveModal("preview");
   };
-  console.log(selectedCard);
+
+  React.useEffect(() => {
+    setClothingCards(defaultClothingItems);
+  }, []);
 
   React.useEffect(() => {
     if (location.latitude && location.latitude) {
@@ -42,6 +47,7 @@ function App() {
       <Header weatherData={weatherdata} onCreateModal={handleCreateModal} />
       <Main
         weatherData={weatherdata}
+        cards={clothingCards}
         onSelectedCard={handleSelectedCard}
         onCloseModal={handleCloseModal}
       />

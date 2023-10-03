@@ -1,7 +1,7 @@
 import React from "react";
 import "./ItemCard.css";
 
-function ItemCard({ card, onSelectedCard, onCloseModal }) {
+function ItemCard({ card, onSelectedCard }) {
   return (
     <li className="card" key={card._id}>
       <img
