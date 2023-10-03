@@ -1,7 +1,7 @@
 import "./Header.css";
 import React from "react";
-import logo from "../images/logo.svg";
-import avatar from "../images/Avatar.png";
+import logo from "../../images/logo.svg";
+import avatar from "../../images/Avatar.png";
 
 function Header({ weatherData, onCreateModal }) {
   const currentDate = new Date().toLocaleString("default", {

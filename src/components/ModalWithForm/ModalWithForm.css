@@ -29,7 +29,7 @@
 }
 
 .modal__close {
-  background: transparent url(../images/Union.png) center no-repeat;
+  background: transparent url(../../images/Union.png) center no-repeat;
   position: absolute;
   right: 30px;
   top: 22px;

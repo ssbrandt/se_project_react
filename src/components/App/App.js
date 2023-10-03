@@ -5,9 +5,9 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
-import { location, APIKey } from "../utils/constants";
-import { getWeatherData, filterWeatherData } from "../utils/WeatherAPI";
-import { defaultClothingItems } from "../utils/defaultClothingItems";
+import { location, APIKey } from "../../utils/constants";
+import { getWeatherData, filterWeatherData } from "../../utils/WeatherAPI";
+import { defaultClothingItems } from "../../utils/defaultClothingItems";
 
 function App() {
   const [weatherdata, setWeatherData] = React.useState({});

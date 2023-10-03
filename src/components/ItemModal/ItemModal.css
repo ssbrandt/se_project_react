@@ -20,7 +20,7 @@
 }
 
 .modal__close-preview {
-  background: transparent url(../images/Union-white.png) center no-repeat;
+  background: transparent url(../../images/Union-white.png) center no-repeat;
   position: absolute;
   right: 26px;
   top: 15px;
