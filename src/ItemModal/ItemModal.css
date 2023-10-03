@@ -1,0 +1,31 @@
+.modal__contents {
+  position: fixed;
+  margin: auto;
+  max-width: 496px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.modal__image {
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+}
+
+.modal__text {
+  padding-left: 32px;
+  margin-bottom: 32px;
+}
+
+.modal__close-preview {
+  background: transparent url(../images/Union-white.png) center no-repeat;
+  position: absolute;
+  right: 26px;
+  top: 15px;
+  height: 16px;
+  width: 16px;
+  border: none;
+  padding: 0;
+}

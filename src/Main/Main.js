@@ -42,7 +42,7 @@ const defaultClothingItems = [
   },
 ];
 
-function Main({ weatherData }) {
+function Main({ weatherData, onSelectedCard, onCloseModal }) {
   const actualTemperature = weatherData.temperature;
 
   const weatherType = () => {
@@ -66,7 +66,11 @@ function Main({ weatherData }) {
           {defaultClothingItems
             .filter((card) => card.weather === weatherType())
             .map((item) => (
-              <ItemCard card={item} />
+              <ItemCard
+                card={item}
+                onSelectedCard={onSelectedCard}
+                onCloseModal={onCloseModal}
+              />
             ))}
         </ul>
       </div>

@@ -1,25 +1,15 @@
 .modal {
   display: flex;
-  /* visibility: hidden; */
-  /* opacity: 0;
-  transition: visibility 0.5s, opacity 0.5s linear; */
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-
   background-color: rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
   z-index: 2;
-}
-
-.modal_opened {
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0.5s, opacity 0.5s linear;
 }
 
 .modal__container {
@@ -53,7 +43,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* width: 440px; */
 }
 
 .form__fieldset {
