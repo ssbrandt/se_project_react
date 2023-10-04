@@ -26,6 +26,10 @@
 
 .modal__title {
   margin: 0px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .modal__close {
@@ -56,6 +60,10 @@
   margin-top: 24px;
   display: block;
   width: 100%;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .form__radio-buttons {
@@ -73,9 +81,10 @@
   padding: 10px;
   border: none;
   margin-bottom: 5px;
-  /* font-family: "Inter", Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  font-size: 14px; */
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
   line-height: 1.2;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
@@ -83,25 +92,32 @@
 
 .form__input-radio {
   display: block;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
 }
 .form__legend {
   margin-top: 24px;
   margin-bottom: 4px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .form__submit {
   width: 124px;
   height: 36px;
-
   background-color: #000;
   opacity: 30%;
   color: #fff;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.2;
   border: none;
   border-radius: 4px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .form__submit:hover {
