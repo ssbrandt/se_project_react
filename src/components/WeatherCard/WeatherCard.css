@@ -4,13 +4,12 @@
   width: 100%;
   max-height: 80px;
   background: url("../../images/sunny.svg") no-repeat center;
-  /* background-size: contain; */
+  background-size: contain;
   margin-bottom: 40px;
   border-radius: 12px;
 }
 
 .weathercard__temp {
-  /* fonts */
   margin: 20px 0 20px 16px;
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;

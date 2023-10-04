@@ -8,6 +8,43 @@ function ModalWithForm({
   buttonText = "Save",
   onCloseModal,
 }) {
+  React.useEffect(
+    (evt) => {
+      function handleOutsideClick(evt) {
+        if (evt.key === "Escape") {
+          onCloseModal();
+        }
+      }
+
+      document.addEventListener("keydown", handleOutsideClick);
+
+      return () => {
+        document.removeEventListener("keydown", handleOutsideClick);
+      };
+    },
+    [onCloseModal]
+  );
+
+  React.useEffect(
+    (evt) => {
+      const handleCloseOnClick = (evt) => {
+        if (
+          evt.target.classList.contains("modal") &&
+          !evt.target.closest(".modal__container")
+        ) {
+          onCloseModal();
+        }
+      };
+
+      window.addEventListener("click", handleCloseOnClick);
+
+      return () => {
+        window.removeEventListener("click", handleCloseOnClick);
+      };
+    },
+    [onCloseModal]
+  );
+
   return (
     <div className={`modal modal_type_${name}`}>
       <div className="modal__container">
