@@ -42,6 +42,41 @@ function App() {
     }
   }, []);
 
+  React.useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
+
+  React.useEffect(() => {
+    if (!activeModal) return;
+
+    const handleCloseOnClick = (evt) => {
+      if (
+        evt.target.classList.contains("modal") &&
+        !evt.target.closest(".modal__container")
+      ) {
+        handleCloseModal();
+      }
+    };
+
+    window.addEventListener("click", handleCloseOnClick);
+
+    return () => {
+      window.removeEventListener("click", handleCloseOnClick);
+    };
+  }, [activeModal]);
+
   return (
     <div className="App">
       <Header weatherData={weatherdata} onCreateModal={handleCreateModal} />
@@ -60,7 +95,9 @@ function App() {
           onCloseModal={handleCloseModal}
         >
           <fieldset className="form__fieldset">
-            <label className="form__label">Name</label>
+            <label className="form__label" htmlFor="garment-name">
+              Name
+            </label>
             <input
               className="form__input-text"
               type="text"
@@ -69,10 +106,13 @@ function App() {
               placeholder="Name"
               required
             ></input>
-            <label className="form__label">Image URL</label>
+            <label className="form__label" htmlFor="image-url">
+              Image URL
+            </label>
             <input
               className="form__input-text"
               type="url"
+              id="image-url"
               name="image-url"
               placeholder="Image URL"
               required
@@ -87,7 +127,9 @@ function App() {
                   name="weather-type"
                   value="hot"
                 />
-                <label className="form__label-radio">Hot</label>
+                <label className="form__label-radio" htmlFor="hot">
+                  Hot
+                </label>
               </div>
               <div className="form__radio-container">
                 <input
@@ -97,7 +139,9 @@ function App() {
                   name="weather-type"
                   value="warm"
                 />
-                <label className="form__label-radio">Warm</label>
+                <label className="form__label-radio" htmlFor="warm">
+                  Warm
+                </label>
               </div>
               <div className="form__radio-container">
                 <input
@@ -107,7 +151,9 @@ function App() {
                   name="weather-type"
                   value="cold"
                 />
-                <label className="form__label-radio">Cold</label>
+                <label className="form__label-radio" htmlFor="cold">
+                  Cold
+                </label>
               </div>
             </div>
           </fieldset>

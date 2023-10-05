@@ -3,7 +3,7 @@ import "./ItemCard.css";
 
 function ItemCard({ card, onSelectedCard }) {
   return (
-    <li className="card" key={card._id}>
+    <li className="card">
       <img
         src={card.link}
         alt={card.name}

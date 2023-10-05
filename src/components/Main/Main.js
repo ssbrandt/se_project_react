@@ -17,28 +17,25 @@ function Main({ weatherData, cards, onSelectedCard, onCloseModal }) {
   };
 
   return (
-    <>
-      <div className="main">
-        <WeatherCard weatherData={weatherData} />
-        <p className="main__weather-info">
-          Today is {Math.round(weatherData.temperature)}°F / You may want to
-          wear:{" "}
-        </p>
-        <div>
-          <ul className="main__cards">
-            {cards
-              .filter((card) => card.weather === weatherType())
-              .map((item) => (
-                <ItemCard
-                  card={item}
-                  onSelectedCard={onSelectedCard}
-                  onCloseModal={onCloseModal}
-                />
-              ))}
-          </ul>
-        </div>
+    <main className="main">
+      <WeatherCard weatherData={weatherData} />
+      <p className="main__weather-info">
+        Today is {Math.round(weatherData.temperature)}°F / You may want to wear:{" "}
+      </p>
+      <div>
+        <ul className="main__cards">
+          {cards
+            .filter((card) => card.weather === weatherType())
+            .map((item) => (
+              <ItemCard
+                key={item._id}
+                card={item}
+                onSelectedCard={onSelectedCard}
+              />
+            ))}
+        </ul>
       </div>
-    </>
+    </main>
   );
 }
 
