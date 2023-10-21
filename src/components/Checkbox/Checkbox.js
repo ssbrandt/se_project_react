@@ -1,23 +1,46 @@
 import React from "react";
 import "./Checkbox.css";
 
-function Checkbox({ isOn, handleToggle }) {
+const Checkbox = () => {
+  const [currentTemperatureUnit, handleToggleSwitchChange] =
+    React.useState("F");
+
+  const handleToggleChange = (evt) => {
+    currentTemperatureUnit === "F"
+      ? handleToggleSwitchChange("C")
+      : handleToggleSwitchChange("F");
+  };
+
   return (
-    <div className="react-switch-container">
+    <label className="switch">
       <input
-        checked={isOn}
-        onChange={handleToggle}
-        className="react-switch-checkbox"
-        id={`react-switch-new`}
         type="checkbox"
+        className="switch__box"
+        onChange={handleToggleChange}
       />
-      <label className="react-switch-label" htmlFor={`react-switch-new`}>
-        <span className={`react-switch-button`} />
-        <span className="react-switch-label-text">F</span>
-        <span className="react-switch-label-text">C</span>
-      </label>
-    </div>
+      <span
+        className={
+          currentTemperatureUnit === "F"
+            ? "switch__slider switch__slider-F"
+            : "switch__slider switch__slider-C"
+        }
+      ></span>
+      <p
+        className={`switch__temp-F ${
+          currentTemperatureUnit === "F" && "switch__active"
+        }`}
+      >
+        F
+      </p>
+      <p
+        className={`switch__temp-C ${
+          currentTemperatureUnit === "C" && "switch__active"
+        }`}
+      >
+        C
+      </p>
+    </label>
   );
-}
+};
 
 export default Checkbox;
