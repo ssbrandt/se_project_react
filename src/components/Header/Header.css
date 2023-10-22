@@ -29,3 +29,17 @@
   width: 40px;
   height: 40px;
 }
+
+a {
+  text-decoration: none;
+  list-style-type: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  padding: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}

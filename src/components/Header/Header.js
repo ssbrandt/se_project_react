@@ -3,6 +3,7 @@ import React from "react";
 import logo from "../../images/logo.svg";
 import avatar from "../../images/Avatar.png";
 import Checkbox from "../Checkbox/Checkbox";
+import { Link } from "react-router-dom";
 
 function Header({ weatherData, onCreateModal }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -17,7 +18,9 @@ function Header({ weatherData, onCreateModal }) {
       <div className="header__group">
         <ul className="header__items">
           <li className="header__item">
-            <img alt="wtwr logo" src={logo} className="header__logo" />
+            <Link to="/">
+              <img alt="wtwr logo" src={logo} className="header__logo" />
+            </Link>
           </li>
           <li className="header__item">
             {currentDate}, {weatherData.city}
@@ -38,10 +41,12 @@ function Header({ weatherData, onCreateModal }) {
               + Add Clothes
             </button>
           </li>
-          <li className="header__item">Terrence Tegegne</li>
-          <li className="header__item">
-            <img src={avatar} alt="User Avatar" className="header__avatar" />
-          </li>
+          <Link to="/profile">
+            <li className="header__item">Terrence Tegegne</li>
+            <li className="header__item">
+              <img src={avatar} alt="User Avatar" className="header__avatar" />
+            </li>
+          </Link>
         </ul>
       </div>
     </header>
