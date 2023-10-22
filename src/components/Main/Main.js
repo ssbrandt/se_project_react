@@ -2,11 +2,31 @@ import React from "react";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import "./Main.css";
+import { CurrentTemperatureContext } from "../../contexts/CurrentTemperatureContext";
 
 function Main({ weatherData, cards, onSelectedCard, onCloseModal }) {
-  const actualTemperature = weatherData.temperature;
+  const { currentTemperatureUnit } = React.useContext(
+    CurrentTemperatureContext
+  );
 
-  const weatherType = () => {
+  // const actualTemperature = 88;
+  // const actualTemperature =
+  //   weatherData.temperature[currentTemperatureUnit] || 888;
+  // console.log(actualTemperature);
+
+  let actualTemperature = 0;
+  const setTemperature = () => {
+    if (weatherData.temperature) {
+      actualTemperature = weatherData.temperature[currentTemperatureUnit];
+    } else {
+      actualTemperature = 888;
+    }
+  };
+  setTemperature();
+
+  const temperatureDisplay = `${actualTemperature}°${currentTemperatureUnit}`;
+
+  const weatherTypeF = () => {
     if (actualTemperature >= 86) {
       return "hot";
     } else if (actualTemperature >= 66 && actualTemperature <= 85) {
@@ -16,11 +36,26 @@ function Main({ weatherData, cards, onSelectedCard, onCloseModal }) {
     }
   };
 
+  const weatherTypeC = () => {
+    if (actualTemperature >= 30) {
+      return "hot";
+    } else if (actualTemperature >= 19 && actualTemperature <= 30) {
+      return "warm";
+    } else if (actualTemperature <= 18) {
+      return "cold";
+    }
+  };
+
+  const weatherType = () => {
+    return currentTemperatureUnit === "F" ? weatherTypeF() : weatherTypeC();
+  };
+
   return (
     <main className="main">
-      <WeatherCard weatherData={weatherData} />
+      <WeatherCard weatherData={temperatureDisplay} />
       <p className="main__weather-info">
-        Today is {Math.round(weatherData.temperature)}°F / You may want to wear:{" "}
+        Today is {actualTemperature}°{currentTemperatureUnit} / You may want to
+        wear:{" "}
       </p>
       <div>
         <ul className="main__cards">
