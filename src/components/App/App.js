@@ -46,7 +46,7 @@ function App() {
   };
 
   const handleAddItem = (values) => {
-    console.log(values);
+    setClothingCards([values, ...clothingCards]);
     handleCloseModal();
   };
 
