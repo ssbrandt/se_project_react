@@ -2,7 +2,7 @@ import "./Header.css";
 import React from "react";
 import logo from "../../images/logo.svg";
 import avatar from "../../images/Avatar.png";
-import Checkbox from "../Checkbox/Checkbox";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 
 function Header({ weatherData, onCreateModal }) {
@@ -30,7 +30,7 @@ function Header({ weatherData, onCreateModal }) {
       <div className="header__group">
         <ul className="header__items">
           <li className="header__item">
-            <Checkbox isOn={value} handleToggle={() => setValue(!value)} />
+            <ToggleSwitch isOn={value} handleToggle={() => setValue(!value)} />
           </li>
           <li className="header__item">
             <button
