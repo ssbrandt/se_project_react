@@ -10,7 +10,7 @@ import Profile from "../Profile/Profile";
 import AddItemModal from "../AddItemModal/AddItemModal";
 
 //context imports
-import { CurrentTemperatureContext } from "../../contexts/CurrentTemperatureContext";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 //constants imports
 import { location, APIKey } from "../../utils/constants";
@@ -123,7 +123,7 @@ function App() {
 
   return (
     <div className="App">
-      <CurrentTemperatureContext.Provider
+      <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <Header
@@ -166,7 +166,7 @@ function App() {
             onDelete={handleDelete}
           />
         )}
-      </CurrentTemperatureContext.Provider>
+      </CurrentTemperatureUnitContext.Provider>
     </div>
   );
 }

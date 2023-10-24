@@ -1,10 +1,10 @@
 import React from "react";
 import "./Checkbox.css";
-import { CurrentTemperatureContext } from "../../contexts/CurrentTemperatureContext";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 const Checkbox = () => {
   const { currentTemperatureUnit, handleToggleSwitchChange } = React.useContext(
-    CurrentTemperatureContext
+    CurrentTemperatureUnitContext
   );
 
   return (

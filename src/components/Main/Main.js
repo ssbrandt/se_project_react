@@ -2,17 +2,12 @@ import React from "react";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import "./Main.css";
-import { CurrentTemperatureContext } from "../../contexts/CurrentTemperatureContext";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 function Main({ weatherData, cards, onSelectedCard, onCloseModal }) {
   const { currentTemperatureUnit } = React.useContext(
-    CurrentTemperatureContext
+    CurrentTemperatureUnitContext
   );
-
-  // const actualTemperature = 88;
-  // const actualTemperature =
-  //   weatherData.temperature[currentTemperatureUnit] || 888;
-  // console.log(actualTemperature);
 
   let actualTemperature = 0;
   const setTemperature = () => {
