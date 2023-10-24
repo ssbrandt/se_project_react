@@ -147,6 +147,7 @@ function App() {
               cards={clothingCards}
               onSelectedCard={handleSelectedCard}
               onCloseModal={handleCloseModal}
+              onCreateModal={handleCreateModal}
             />
           </Route>
         </Switch>

@@ -4,7 +4,7 @@ import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
 
-function Profile({ cards, onSelectedCard, onCloseModal }) {
+function Profile({ cards, onSelectedCard, onCloseModal, onCreateModal }) {
   return (
     <div className="profile">
       <SideBar />
@@ -12,6 +12,7 @@ function Profile({ cards, onSelectedCard, onCloseModal }) {
         cards={cards}
         onSelectedCard={onSelectedCard}
         onCloseModal={onCloseModal}
+        onCreateModal={onCreateModal}
       />
     </div>
   );
