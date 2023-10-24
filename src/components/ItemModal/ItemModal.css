@@ -6,12 +6,24 @@
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   box-sizing: border-box;
+  padding-bottom: 32px;
 }
 
 .modal__image {
   border-radius: 10px 10px 0px 0px;
   width: 100%;
   margin-bottom: 20px;
+}
+
+.modal__close-preview {
+  background: transparent url(../../images/Union-white.png) center no-repeat;
+  position: absolute;
+  right: 26px;
+  top: 15px;
+  height: 16px;
+  width: 16px;
+  border: none;
+  padding: 0;
 }
 
 .modal__text {
@@ -23,17 +35,20 @@
   margin: 0 0 12px 0;
 }
 
-.modal__text:last-of-type {
-  margin-bottom: 32px;
+.modal__delete {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  background-color: #fff;
+  border: none;
+  padding: 0 32px 0 0;
+  color: #ff4d00;
+  cursor: pointer;
 }
 
-.modal__close-preview {
-  background: transparent url(../../images/Union-white.png) center no-repeat;
-  position: absolute;
-  right: 26px;
-  top: 15px;
-  height: 16px;
-  width: 16px;
-  border: none;
+.modal__title {
+  display: flex;
+  justify-content: space-between;
   padding: 0;
 }

@@ -34,7 +34,6 @@ function App() {
   };
 
   const handleSelectedCard = (card) => {
-    console.log("handleSelectedCard");
     setSelectedCard(card);
     setActiveModal("preview");
   };
@@ -47,6 +46,14 @@ function App() {
 
   const handleAddItem = (values) => {
     setClothingCards([values, ...clothingCards]);
+    handleCloseModal();
+  };
+
+  const handleDelete = () => {
+    const newClothingList = clothingCards.filter(
+      (card) => card["_id"] !== selectedCard["_id"]
+    );
+    setClothingCards(newClothingList);
     handleCloseModal();
   };
 
@@ -137,7 +144,11 @@ function App() {
           />
         )}
         {activeModal === "preview" && (
-          <ItemModal onCloseModal={handleCloseModal} card={selectedCard} />
+          <ItemModal
+            onCloseModal={handleCloseModal}
+            card={selectedCard}
+            onDelete={handleDelete}
+          />
         )}
       </CurrentTemperatureContext.Provider>
     </div>

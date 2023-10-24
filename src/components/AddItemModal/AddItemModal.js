@@ -20,9 +20,6 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
     setWeather(e.target.value);
   };
 
-  // use a useEffect hook to reset the input field state to empty strings when
-  // the modal is opened
-
   React.useEffect(() => {
     setName("");
     setLink("");
