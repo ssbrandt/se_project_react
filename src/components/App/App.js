@@ -17,6 +17,9 @@ import { location, APIKey } from "../../utils/constants";
 import { getWeatherData, filterWeatherData } from "../../utils/WeatherAPI";
 import { defaultClothingItems } from "../../utils/defaultClothingItems";
 
+//api imports
+import { getClothingItems } from "../../utils/api";
+
 function App() {
   const [weatherdata, setWeatherData] = React.useState({});
   const [activeModal, setActiveModal] = React.useState("");
@@ -57,8 +60,13 @@ function App() {
     handleCloseModal();
   };
 
+  //need to fix this tomorrow am, may need to add another then statement to get data
   React.useEffect(() => {
-    setClothingCards(defaultClothingItems);
+    // const apiClothes = getClothingItems();
+    getClothingItems().then((clothingItems) => {
+      setClothingCards(clothingItems);
+    });
+    // setClothingCards(defaultClothingItems);
   }, []);
 
   React.useEffect(() => {
