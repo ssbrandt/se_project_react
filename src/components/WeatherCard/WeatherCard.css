@@ -1,19 +1,24 @@
 .weathercard {
   display: flex;
-  max-width: 1360px;
+  max-width: 1300px;
   width: 100%;
   max-height: 80px;
-  background: url("../../images/sunny.svg") no-repeat center;
-  background-size: contain;
   margin-bottom: 40px;
   border-radius: 12px;
 }
 
 .weathercard__temp {
-  margin: 20px 0 20px 16px;
+  margin: 10px 0 10px 16px;
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
   font-size: 36px;
   line-height: 40px;
   color: #fff;
+  position: absolute;
+}
+
+.weathercard__image {
+  max-width: 1300px;
+  width: 100%;
+  max-height: 80px;
 }
