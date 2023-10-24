@@ -19,8 +19,6 @@ function Main({ weatherData, cards, onSelectedCard, onCloseModal }) {
   };
   setTemperature();
 
-  const temperatureDisplay = `${actualTemperature}°${currentTemperatureUnit}`;
-
   const weatherTypeF = () => {
     if (actualTemperature >= 86) {
       return "hot";
@@ -47,7 +45,7 @@ function Main({ weatherData, cards, onSelectedCard, onCloseModal }) {
 
   return (
     <main className="main">
-      <WeatherCard weatherData={temperatureDisplay} />
+      <WeatherCard temperature={actualTemperature} />
       <p className="main__weather-info">
         Today is {actualTemperature}°{currentTemperatureUnit} / You may want to
         wear:{" "}
