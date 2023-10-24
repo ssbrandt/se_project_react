@@ -15,10 +15,9 @@ import { CurrentTemperatureContext } from "../../contexts/CurrentTemperatureCont
 //constants imports
 import { location, APIKey } from "../../utils/constants";
 import { getWeatherData, filterWeatherData } from "../../utils/WeatherAPI";
-import { defaultClothingItems } from "../../utils/defaultClothingItems";
 
 //api imports
-import { getClothingItems } from "../../utils/api";
+import { getClothingItems, addClothingItem } from "../../utils/api";
 
 function App() {
   const [weatherdata, setWeatherData] = React.useState({});
@@ -47,8 +46,13 @@ function App() {
       : setCurrentTemperatureUnit("F");
   };
 
-  const handleAddItem = (values) => {
-    setClothingCards([values, ...clothingCards]);
+  const handleAddItem = ({ name, link, weather }) => {
+    addClothingItem({ name, link, weather }).then((data) => {
+      setClothingCards([
+        { name, link, weather, _id: data["_id"] },
+        ...clothingCards,
+      ]);
+    });
     handleCloseModal();
   };
 
@@ -60,13 +64,10 @@ function App() {
     handleCloseModal();
   };
 
-  //need to fix this tomorrow am, may need to add another then statement to get data
   React.useEffect(() => {
-    // const apiClothes = getClothingItems();
     getClothingItems().then((clothingItems) => {
       setClothingCards(clothingItems);
     });
-    // setClothingCards(defaultClothingItems);
   }, []);
 
   React.useEffect(() => {

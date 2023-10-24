@@ -11,4 +11,14 @@ const getClothingItems = () => {
   return fetch(baseUrl + "/items").then((res) => checkResponse(res));
 };
 
-export { getClothingItems };
+const addClothingItem = ({ name, link, weather }) => {
+  return fetch(baseUrl + "/items", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name, link, weather }),
+  }).then(checkResponse);
+};
+
+export { getClothingItems, addClothingItem };
