@@ -21,4 +21,10 @@ const addClothingItem = ({ name, link, weather }) => {
   }).then(checkResponse);
 };
 
-export { getClothingItems, addClothingItem };
+const deleteClothingItem = (selectedCardId) => {
+  return fetch(baseUrl + `/items/${selectedCardId}`, {
+    method: "DELETE",
+  }).then(checkResponse);
+};
+
+export { getClothingItems, addClothingItem, deleteClothingItem };

@@ -17,7 +17,11 @@ import { location, APIKey } from "../../utils/constants";
 import { getWeatherData, filterWeatherData } from "../../utils/WeatherAPI";
 
 //api imports
-import { getClothingItems, addClothingItem } from "../../utils/api";
+import {
+  getClothingItems,
+  addClothingItem,
+  deleteClothingItem,
+} from "../../utils/api";
 
 function App() {
   const [weatherdata, setWeatherData] = React.useState({});
@@ -52,16 +56,18 @@ function App() {
         { name, link, weather, _id: data["_id"] },
         ...clothingCards,
       ]);
+      handleCloseModal();
     });
-    handleCloseModal();
   };
 
   const handleDelete = () => {
-    const newClothingList = clothingCards.filter(
-      (card) => card["_id"] !== selectedCard["_id"]
-    );
-    setClothingCards(newClothingList);
-    handleCloseModal();
+    deleteClothingItem(selectedCard["_id"]).then((id) => {
+      const newClothingList = clothingCards.filter(
+        (card) => card["_id"] !== selectedCard["_id"]
+      );
+      setClothingCards(newClothingList);
+      handleCloseModal();
+    });
   };
 
   React.useEffect(() => {
