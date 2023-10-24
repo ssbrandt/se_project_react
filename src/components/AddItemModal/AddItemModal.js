@@ -51,6 +51,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           name="garment-name"
           placeholder="Name"
           required
+          value={name}
           onChange={handleNameChange}
         ></input>
         <label className="form__label" htmlFor="image-url">
@@ -64,6 +65,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           placeholder="Image URL"
           required
           onChange={handleLinkChange}
+          value={link}
         ></input>
         <div className="form__radio-buttons">
           <legend className="form__legend">Select the weather type:</legend>

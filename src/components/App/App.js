@@ -55,25 +55,27 @@ function App() {
       setClothingCards([
         { name, link, weather, _id: data["_id"] },
         ...clothingCards,
-      ]);
+      ]).catch(console.error);
       handleCloseModal();
     });
   };
 
   const handleDelete = () => {
     deleteClothingItem(selectedCard["_id"]).then((id) => {
-      const newClothingList = clothingCards.filter(
-        (card) => card["_id"] !== selectedCard["_id"]
-      );
+      const newClothingList = clothingCards
+        .filter((card) => card["_id"] !== selectedCard["_id"])
+        .catch(console.error);
       setClothingCards(newClothingList);
       handleCloseModal();
     });
   };
 
   React.useEffect(() => {
-    getClothingItems().then((clothingItems) => {
-      setClothingCards(clothingItems);
-    });
+    getClothingItems()
+      .then((clothingItems) => {
+        setClothingCards(clothingItems);
+      })
+      .catch(console.error);
   }, []);
 
   React.useEffect(() => {
