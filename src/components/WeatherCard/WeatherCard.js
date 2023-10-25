@@ -1,6 +1,6 @@
 import React from "react";
 import "./WeatherCard.css";
-import weatherImage from "../../images/sunny.svg";
+import weatherImage from "../../images/day-cloudy.svg";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 function WeatherCard({ temperature }) {
