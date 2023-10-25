@@ -51,23 +51,27 @@ function App() {
   };
 
   const handleAddItem = ({ name, link, weather }) => {
-    addClothingItem({ name, link, weather }).then((data) => {
-      setClothingCards([
-        { name, link, weather, _id: data["_id"] },
-        ...clothingCards,
-      ]).catch(console.error);
-      handleCloseModal();
-    });
+    addClothingItem({ name, link, weather })
+      .then((data) => {
+        setClothingCards([
+          { name, link, weather, _id: data["_id"] },
+          ...clothingCards,
+        ]);
+        handleCloseModal();
+      })
+      .catch(console.error);
   };
 
   const handleDelete = () => {
-    deleteClothingItem(selectedCard["_id"]).then((id) => {
-      const newClothingList = clothingCards
-        .filter((card) => card["_id"] !== selectedCard["_id"])
-        .catch(console.error);
-      setClothingCards(newClothingList);
-      handleCloseModal();
-    });
+    deleteClothingItem(selectedCard["_id"])
+      .then((id) => {
+        const newClothingList = clothingCards.filter(
+          (card) => card["_id"] !== selectedCard["_id"]
+        );
+        setClothingCards(newClothingList);
+        handleCloseModal();
+      })
+      .catch(console.error);
   };
 
   React.useEffect(() => {
