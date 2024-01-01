@@ -8,6 +8,8 @@ import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import Profile from "../Profile/Profile";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import SignUpModal from "../SignUpModal/SignUpModal";
+import LogInModal from "../LogInModal/LogInModal";
 
 //context imports
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
@@ -33,6 +35,13 @@ function App() {
 
   const handleCreateModal = () => {
     setActiveModal("create");
+  };
+  const handleSignInModal = () => {
+    setActiveModal("signIn");
+  };
+
+  const handleLogInModal = () => {
+    setActiveModal("logIn");
   };
 
   const handleCloseModal = () => {
@@ -135,6 +144,8 @@ function App() {
         <Header
           weatherData={weatherdata}
           onCreateModal={handleCreateModal}
+          onSignInModal={handleSignInModal}
+          onLogInModal={handleLogInModal}
           onToggle={handleToggleSwitchChange}
         />
         <Switch>
@@ -170,6 +181,20 @@ function App() {
             onCloseModal={handleCloseModal}
             card={selectedCard}
             onDelete={handleDelete}
+          />
+        )}
+        {activeModal === "signIn" && (
+          <SignUpModal
+            onCloseModal={handleCloseModal}
+            isOpen={activeModal === "signIn"}
+            //need to add function to sign in here
+          />
+        )}
+        {activeModal === "logIn" && (
+          <LogInModal
+            onCloseModal={handleCloseModal}
+            isOpen={activeModal === "logIn"}
+            //need to add function to sign in here
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

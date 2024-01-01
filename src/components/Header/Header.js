@@ -5,7 +5,7 @@ import avatar from "../../images/Avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 
-function Header({ weatherData, onCreateModal }) {
+function Header({ weatherData, onCreateModal, onSignInModal, onLogInModal }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -39,6 +39,24 @@ function Header({ weatherData, onCreateModal }) {
               onClick={onCreateModal}
             >
               + Add Clothes
+            </button>
+          </li>
+          <li className="header__item">
+            <button
+              type="text"
+              className="header__button"
+              onClick={onSignInModal}
+            >
+              Sign Up
+            </button>
+          </li>
+          <li className="header__item">
+            <button
+              type="text"
+              className="header__button"
+              onClick={onLogInModal}
+            >
+              Log In
             </button>
           </li>
           <Link to="/profile">
