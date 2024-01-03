@@ -4,10 +4,20 @@ import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
 
-function Profile({ cards, onSelectedCard, onCloseModal, onCreateModal }) {
+function Profile({
+  cards,
+  onSelectedCard,
+  onCloseModal,
+  onCreateModal,
+  onEditProfile,
+  onEditProfileModal,
+}) {
   return (
     <div className="profile">
-      <SideBar />
+      <SideBar
+        onEditProfile={onEditProfile}
+        onEditProfileModal={onEditProfileModal}
+      />
       <ClothesSection
         cards={cards}
         onSelectedCard={onSelectedCard}

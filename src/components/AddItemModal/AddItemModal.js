@@ -8,10 +8,10 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
     setName(e.target.value);
   };
 
-  const [link, setLink] = React.useState("");
+  const [imageUrl, setImageUrl] = React.useState("");
 
-  const handleLinkChange = (e) => {
-    setLink(e.target.value);
+  const handleImageUrlChange = (e) => {
+    setImageUrl(e.target.value);
   };
 
   const [weather, setWeather] = React.useState("");
@@ -22,13 +22,13 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
 
   React.useEffect(() => {
     setName("");
-    setLink("");
+    setImageUrl("");
     setWeather("");
   }, [isOpen]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onAddItem({ name, link, weather });
+    onAddItem({ name, imageUrl, weather });
   }
 
   return (
@@ -64,8 +64,8 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           name="image-url"
           placeholder="Image URL"
           required
-          onChange={handleLinkChange}
-          value={link}
+          onChange={handleImageUrlChange}
+          value={imageUrl}
         ></input>
         <div className="form__radio-buttons">
           <legend className="form__legend">Select the weather type:</legend>

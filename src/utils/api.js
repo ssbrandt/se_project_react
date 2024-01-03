@@ -11,20 +11,31 @@ const getClothingItems = () => {
   return fetch(baseUrl + "/items").then((res) => checkResponse(res));
 };
 
-const addClothingItem = ({ name, link, weather }) => {
+const addClothingItem = ({ name, imageUrl, weather }) => {
   return fetch(baseUrl + "/items", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-    body: JSON.stringify({ name, link, weather }),
+    body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
 };
 
 const deleteClothingItem = (selectedCardId) => {
   return fetch(baseUrl + `/items/${selectedCardId}`, {
     method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
   }).then(checkResponse);
 };
 
-export { getClothingItems, addClothingItem, deleteClothingItem, checkResponse };
+export {
+  baseUrl,
+  getClothingItems,
+  addClothingItem,
+  deleteClothingItem,
+  checkResponse,
+};

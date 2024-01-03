@@ -1,12 +1,30 @@
 import React from "react";
 import "./SideBar.css";
 import avatar from "../../images/Avatar.png";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function SideBar() {
+function SideBar({ onEditProfile, onEditProfileModal }) {
+  const currentUser = React.useContext(CurrentUserContext);
   return (
     <div className="sidebar">
-      <img src={avatar} alt="User Avatar" className="sidebar__avatar" />
-      <h2 className="sidebar__text">Terrence Tegegne</h2>
+      <div className="sidebar__profile">
+        {avatar ? (
+          <img
+            src={currentUser.avatar}
+            alt="User Avatar"
+            className="sidebar__avatar"
+          />
+        ) : (
+          <p className="sidebar__avatar">
+            {currentUser?.name[0].toUpperCase()}
+          </p>
+        )}
+        <h2 className="sidebar__text">{currentUser?.name}</h2>
+      </div>
+      <div>
+        <button onClick={onEditProfileModal}>Change Profile Data</button>
+        <button>Log Out</button>
+      </div>
     </div>
   );
 }

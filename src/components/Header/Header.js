@@ -4,8 +4,15 @@ import logo from "../../images/logo.svg";
 import avatar from "../../images/Avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Header({ weatherData, onCreateModal, onSignInModal, onLogInModal }) {
+function Header({
+  weatherData,
+  onCreateModal,
+  onSignUpModal,
+  onLogInModal,
+  loggedIn,
+}) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -13,6 +20,7 @@ function Header({ weatherData, onCreateModal, onSignInModal, onLogInModal }) {
 
   const [value, setValue] = React.useState(false);
 
+  const currentUser = React.useContext(CurrentUserContext);
   return (
     <header className="header">
       <div className="header__group">
@@ -32,39 +40,58 @@ function Header({ weatherData, onCreateModal, onSignInModal, onLogInModal }) {
           <li className="header__item">
             <ToggleSwitch isOn={value} handleToggle={() => setValue(!value)} />
           </li>
-          <li className="header__item">
-            <button
-              type="text"
-              className="header__button"
-              onClick={onCreateModal}
-            >
-              + Add Clothes
-            </button>
-          </li>
-          <li className="header__item">
-            <button
-              type="text"
-              className="header__button"
-              onClick={onSignInModal}
-            >
-              Sign Up
-            </button>
-          </li>
-          <li className="header__item">
-            <button
-              type="text"
-              className="header__button"
-              onClick={onLogInModal}
-            >
-              Log In
-            </button>
-          </li>
-          <Link to="/profile">
-            <li className="header__item">Terrence Tegegne</li>
-            <li className="header__item">
-              <img src={avatar} alt="User Avatar" className="header__avatar" />
-            </li>
-          </Link>
+
+          {loggedIn ? (
+            <>
+              {" "}
+              <li className="header__item">
+                <button
+                  type="text"
+                  className="header__button"
+                  onClick={onCreateModal}
+                >
+                  + Add Clothes
+                </button>
+              </li>
+              <Link to="/profile">
+                <li className="header__item">{currentUser?.name}</li>
+                <li className="header__item">
+                  {avatar ? (
+                    <img
+                      src={currentUser.avatar}
+                      alt="User Avatar"
+                      className="header__avatar"
+                    />
+                  ) : (
+                    <p className="header__avatar">
+                      {currentUser?.name[0].toUpperCase()}
+                    </p>
+                  )}
+                </li>
+              </Link>
+            </>
+          ) : (
+            <>
+              <li className="header__item">
+                <button
+                  type="text"
+                  className="header__button"
+                  onClick={onSignUpModal}
+                >
+                  Sign Up
+                </button>
+              </li>
+              <li className="header__item">
+                <button
+                  type="text"
+                  className="header__button"
+                  onClick={onLogInModal}
+                >
+                  Log In
+                </button>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </header>

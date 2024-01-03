@@ -5,7 +5,7 @@ function ItemCard({ card, onSelectedCard }) {
   return (
     <li className="card">
       <img
-        src={card.link}
+        src={card.imageUrl}
         alt={card.name}
         className="card__image"
         onClick={() => onSelectedCard(card)}

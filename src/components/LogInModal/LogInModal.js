@@ -1,7 +1,7 @@
 import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LogInModal = ({ isOpen, onSignIn, onCloseModal }) => {
+const LogInModal = ({ isOpen, onLogIn, onCloseModal }) => {
   const [email, setEmail] = React.useState("");
 
   const handleEmailChange = (e) => {
@@ -21,7 +21,7 @@ const LogInModal = ({ isOpen, onSignIn, onCloseModal }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
+    onLogIn(email, password);
   }
 
   return (

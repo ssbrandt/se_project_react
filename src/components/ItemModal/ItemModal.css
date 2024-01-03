@@ -15,7 +15,7 @@
   margin-bottom: 20px;
 }
 
-.modal__close-preview {
+.modal__close-preview_visible {
   background: transparent url(../../images/Union-white.png) center no-repeat;
   position: absolute;
   right: 26px;
@@ -24,6 +24,11 @@
   width: 16px;
   border: none;
   padding: 0;
+  visibility: visible;
+}
+
+.modal__close-preview_hidden {
+  visibility: hidden;
 }
 
 .modal__text {
