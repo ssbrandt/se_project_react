@@ -111,16 +111,13 @@ function App() {
 
   const handleAddItem = ({ name, imageUrl, weather }) => {
     addClothingItem({ name, imageUrl, weather })
-      .then((data) => {
-        setClothingCards([
-          { name, imageUrl, _id: data["_id"] },
-          ...clothingCards,
-        ]);
+      .then((card) => {
+        console.log(card.data);
+        setClothingCards([card.data, ...clothingCards]);
         handleCloseModal();
       })
       .catch(console.error);
   };
-
   const handleDelete = () => {
     deleteClothingItem(selectedCard["_id"])
       .then((id) => {
@@ -144,7 +141,6 @@ function App() {
 
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
-    console.log("handle click");
 
     !isLiked
       ? addCardLike(id, token)
