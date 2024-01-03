@@ -139,26 +139,6 @@ function App() {
       .catch(console.error);
   };
 
-  // const handleCardLike = ({ id, isLiked }) => {
-  //   const token = localStorage.getItem("jwt");
-
-  //   !isLiked
-  //     ? addCardLike(id, token)
-  //         .then((updatedCard) => {
-  //           setClothingCards((cards) =>
-  //             cards.map((c) => (c._id === id ? updatedCard : c))
-  //           );
-  //         })
-  //         .catch((err) => console.log(err))
-  //     : deleteCardLike(id, token)
-  //         .then((updatedCard) => {
-  //           setClothingCards((cards) =>
-  //             cards.map((c) => (c._id === id ? updatedCard : c))
-  //           );
-  //         })
-  //         .catch((err) => console.log(err));
-  // };
-
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
 

@@ -7,8 +7,8 @@ function ItemModal({ card, onCloseModal, onDelete }) {
 
   const isOwner = currentUser && card.owner === currentUser._id;
 
-  const itemDeleteButtonClassName = `item__delete-button ${
-    isOwner ? "modal__close-preview_visible" : "modal__close-preview_hidden"
+  const itemDeleteButtonClassName = `modal__delete ${
+    isOwner ? "modal__delete-visible" : "modal__delete-hidden"
   }`;
 
   return (
@@ -17,14 +17,18 @@ function ItemModal({ card, onCloseModal, onDelete }) {
         <img src={card.imageUrl} alt={card.name} className="modal__image" />
         <div className="modal__title">
           <p className="modal__text">{card.name}</p>
-          <button type="button" className="modal__delete" onClick={onDelete}>
+          <button
+            type="button"
+            className={itemDeleteButtonClassName}
+            onClick={onDelete}
+          >
             Delete item
           </button>
         </div>
         <p className="modal__text">Weather: {card.weather}</p>
         <button
           type="button"
-          className={itemDeleteButtonClassName}
+          className="modal__close-preview"
           onClick={onCloseModal}
         ></button>
       </div>
