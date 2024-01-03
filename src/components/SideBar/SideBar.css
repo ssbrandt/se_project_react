@@ -24,3 +24,24 @@
   padding-right: 20px;
   margin: 0;
 }
+
+.sidebar__profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.sidebar__options {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__button {
+  all: unset;
+  margin-bottom: 8px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  padding-right: 20px;
+}

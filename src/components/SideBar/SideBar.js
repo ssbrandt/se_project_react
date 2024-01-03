@@ -21,9 +21,13 @@ function SideBar({ onEditProfile, onEditProfileModal, onLogOut }) {
         )}
         <h2 className="sidebar__text">{currentUser?.name}</h2>
       </div>
-      <div>
-        <button onClick={onEditProfileModal}>Change Profile Data</button>
-        <button onClick={onLogOut}>Log Out</button>
+      <div className="sidebar__options">
+        <button onClick={onEditProfileModal} className="sidebar__button">
+          Change Profile Data
+        </button>
+        <button onClick={onLogOut} className="sidebar__button">
+          Log Out
+        </button>
       </div>
     </div>
   );
