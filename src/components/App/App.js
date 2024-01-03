@@ -126,10 +126,10 @@ function App() {
       .catch(console.error);
   };
 
-  const handleEditProfile = (name, avatar) => {
-    editProfile(name, avatar)
+  const handleEditProfile = ({ name, avatar }) => {
+    editProfile({ name, avatar })
       .then((userData) => {
-        setCurrentUser(userData.data);
+        setCurrentUser(userData.user);
         handleCloseModal();
       })
       .catch(console.error);

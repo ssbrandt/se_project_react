@@ -32,8 +32,7 @@ const getUserInfo = () => {
   }).then(checkResponse);
 };
 
-const editProfile = (name, avatar) => {
-  console.log("name" + name.name);
+const editProfile = ({ name, avatar }) => {
   return fetch(baseUrl + "/users/me", {
     method: "PATCH",
     headers: {
