@@ -90,6 +90,12 @@ function App() {
   };
 
   //const handleLogOut
+  const handleLogOut = () => {
+    localStorage.removeItem("jwt");
+    setLoggedIn(false);
+    setCurrentUser(null);
+    setClothingCards(clothingCards);
+  };
 
   const handleSelectedCard = (card) => {
     setSelectedCard(card);
@@ -242,6 +248,7 @@ function App() {
                 onCreateModal={handleCreateModal}
                 onEditProfileModal={handleEditProfileModal}
                 onEditProfile={handleEditProfile}
+                onLogOut={handleLogOut}
               />
             </ProtectedRoute>
           </Switch>

@@ -11,12 +11,14 @@ function Profile({
   onCreateModal,
   onEditProfile,
   onEditProfileModal,
+  onLogOut,
 }) {
   return (
     <div className="profile">
       <SideBar
         onEditProfile={onEditProfile}
         onEditProfileModal={onEditProfileModal}
+        onLogOut={onLogOut}
       />
       <ClothesSection
         cards={cards}

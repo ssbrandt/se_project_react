@@ -3,7 +3,7 @@ import "./SideBar.css";
 import avatar from "../../images/Avatar.png";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function SideBar({ onEditProfile, onEditProfileModal }) {
+function SideBar({ onEditProfile, onEditProfileModal, onLogOut }) {
   const currentUser = React.useContext(CurrentUserContext);
   return (
     <div className="sidebar">
@@ -23,7 +23,7 @@ function SideBar({ onEditProfile, onEditProfileModal }) {
       </div>
       <div>
         <button onClick={onEditProfileModal}>Change Profile Data</button>
-        <button>Log Out</button>
+        <button onClick={onLogOut}>Log Out</button>
       </div>
     </div>
   );
