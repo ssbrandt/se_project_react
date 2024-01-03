@@ -26,6 +26,8 @@ import {
   getClothingItems,
   addClothingItem,
   deleteClothingItem,
+  addCardLike,
+  deleteCardLike,
 } from "../../utils/api";
 
 import {
@@ -89,7 +91,6 @@ function App() {
       .catch(console.error);
   };
 
-  //const handleLogOut
   const handleLogOut = () => {
     localStorage.removeItem("jwt");
     setLoggedIn(false);
@@ -139,6 +140,27 @@ function App() {
         handleCloseModal();
       })
       .catch(console.error);
+  };
+
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    console.log("handle click");
+
+    !isLiked
+      ? addCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingCards((cards) =>
+              cards.map((c) => (c._id === id ? updatedCard : c))
+            );
+          })
+          .catch((err) => console.log(err))
+      : deleteCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingCards((cards) =>
+              cards.map((c) => (c._id === id ? updatedCard : c))
+            );
+          })
+          .catch((err) => console.log(err));
   };
 
   React.useEffect(() => {
@@ -236,6 +258,8 @@ function App() {
                 cards={clothingCards}
                 onSelectedCard={handleSelectedCard}
                 onCloseModal={handleCloseModal}
+                onCardLike={handleCardLike}
+                loggedIn={loggedIn}
               />
               <Footer />
             </Route>
@@ -249,6 +273,8 @@ function App() {
                 onEditProfileModal={handleEditProfileModal}
                 onEditProfile={handleEditProfile}
                 onLogOut={handleLogOut}
+                onCardLike={handleCardLike}
+                loggedIn={loggedIn}
               />
             </ProtectedRoute>
           </Switch>

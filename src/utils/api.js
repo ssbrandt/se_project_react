@@ -32,10 +32,32 @@ const deleteClothingItem = (selectedCardId) => {
   }).then(checkResponse);
 };
 
+const addCardLike = (id) => {
+  return fetch(baseUrl + `/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+  }).then(checkResponse);
+};
+
+const deleteCardLike = (id) => {
+  return fetch(baseUrl + `/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+  }).then(checkResponse);
+};
+
 export {
   baseUrl,
   getClothingItems,
   addClothingItem,
   deleteClothingItem,
   checkResponse,
+  addCardLike,
+  deleteCardLike,
 };

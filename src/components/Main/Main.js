@@ -4,7 +4,14 @@ import ItemCard from "../ItemCard/ItemCard";
 import "./Main.css";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
-function Main({ weatherData, cards, onSelectedCard, onCloseModal }) {
+function Main({
+  weatherData,
+  cards,
+  onSelectedCard,
+  onCloseModal,
+  onCardLike,
+  loggedIn,
+}) {
   const { currentTemperatureUnit } = React.useContext(
     CurrentTemperatureUnitContext
   );
@@ -59,6 +66,8 @@ function Main({ weatherData, cards, onSelectedCard, onCloseModal }) {
                 key={item._id}
                 card={item}
                 onSelectedCard={onSelectedCard}
+                onCardLike={onCardLike}
+                loggedIn={loggedIn}
               />
             ))}
         </ul>

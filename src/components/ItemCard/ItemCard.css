@@ -8,7 +8,7 @@
   border-radius: 7%;
 }
 
-.card__title {
+/* .card__title {
   margin: 0 auto;
   position: absolute;
   top: 15px;
@@ -19,6 +19,25 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
+} */
+
+.card__header {
+  margin: 0 auto;
+  position: absolute;
+  top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.card__title {
+  border-radius: 4px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 2px 12px;
+  background: #fff;
+  margin: 0;
 }
 
 .card__image {
@@ -27,4 +46,22 @@
   overflow: hidden;
   border-radius: 7%;
   border: 1px solid;
+}
+
+.card__likeButton {
+  width: 22px;
+  height: 19px;
+  transition: opacity 0.5s ease-in-out;
+  cursor: pointer;
+  background: no-repeat;
+  border: none;
+  margin-left: 10px;
+}
+
+.card__likeButton-active {
+  background-image: url("../../images/like-button-active.svg");
+}
+
+.card__likeButton-inactive {
+  background-image: url("../../images/like-button-inactive.svg");
 }
