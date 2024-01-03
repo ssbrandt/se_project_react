@@ -12,6 +12,8 @@ function Profile({
   onEditProfile,
   onEditProfileModal,
   onLogOut,
+  onCardLike,
+  loggedIn,
 }) {
   return (
     <div className="profile">
@@ -25,6 +27,8 @@ function Profile({
         onSelectedCard={onSelectedCard}
         onCloseModal={onCloseModal}
         onCreateModal={onCreateModal}
+        onCardLike={onCardLike}
+        loggedIn={loggedIn}
       />
     </div>
   );
