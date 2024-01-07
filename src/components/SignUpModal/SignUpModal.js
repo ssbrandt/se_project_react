@@ -1,7 +1,7 @@
 import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const SignUpModal = ({ isOpen, onSignUp, onCloseModal }) => {
+const SignUpModal = ({ isOpen, onSignUp, onCloseModal, onLogInRedirect }) => {
   const [email, setEmail] = React.useState("");
 
   const handleEmailChange = (e) => {
@@ -76,7 +76,7 @@ const SignUpModal = ({ isOpen, onSignUp, onCloseModal }) => {
           onChange={handlePasswordChange}
         ></input>
 
-        <label className="form__label" htmlFor="Name">
+        <label className="form__label" htmlFor="name">
           Name
         </label>
         <input
@@ -90,7 +90,7 @@ const SignUpModal = ({ isOpen, onSignUp, onCloseModal }) => {
           onChange={handleNameChange}
         ></input>
 
-        <label className="form__label" htmlFor="Name">
+        <label className="form__label" htmlFor="avatar">
           Avatar URL
         </label>
         <input
@@ -104,6 +104,13 @@ const SignUpModal = ({ isOpen, onSignUp, onCloseModal }) => {
           onChange={handleAvatarChange}
         ></input>
       </fieldset>
+      <button
+        type="button"
+        className="form__redirect"
+        onClick={onLogInRedirect}
+      >
+        or Log In
+      </button>
     </ModalWithForm>
   );
 };

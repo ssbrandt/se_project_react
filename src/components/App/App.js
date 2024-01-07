@@ -94,7 +94,7 @@ function App() {
   const handleLogOut = () => {
     localStorage.removeItem("jwt");
     setLoggedIn(false);
-    setCurrentUser(null);
+    setCurrentUser({});
     setClothingCards(clothingCards);
   };
 
@@ -149,14 +149,14 @@ function App() {
               cards.map((c) => (c._id === id ? updatedCard.data : c))
             );
           })
-          .catch((err) => console.log(err))
+          .catch(console.error)
       : deleteCardLike(id, token)
           .then((updatedCard) => {
             setClothingCards((cards) =>
               cards.map((c) => (c._id === id ? updatedCard.data : c))
             );
           })
-          .catch((err) => console.log(err));
+          .catch(console.error);
   };
 
   React.useEffect(() => {
@@ -222,7 +222,7 @@ function App() {
           setCurrentUser(userData.data);
         })
         .catch((error) => {
-          console.log("Invalid Token", error);
+          console.error();
           setLoggedIn(false);
           setCurrentUser({});
           localStorage.removeItem("jwt");
@@ -294,6 +294,8 @@ function App() {
               onCloseModal={handleCloseModal}
               isOpen={activeModal === "signUp"}
               onSignUp={handleSignUp}
+              onLogIn={handleLogin}
+              onLogInRedirect={handleLogInModal}
             />
           )}
           {activeModal === "logIn" && (
@@ -301,6 +303,7 @@ function App() {
               onCloseModal={handleCloseModal}
               isOpen={activeModal === "logIn"}
               onLogIn={handleLogin}
+              onSignUpRedirect={handleSignUpModal}
             />
           )}
           {activeModal === "editProfile" && (

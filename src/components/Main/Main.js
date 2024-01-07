@@ -46,7 +46,7 @@ function Main({
     }
   };
 
-  const weatherType = () => {
+  const getWeatherType = () => {
     return currentTemperatureUnit === "F" ? weatherTypeF() : weatherTypeC();
   };
 
@@ -60,7 +60,7 @@ function Main({
       <div>
         <ul className="main__cards">
           {cards
-            .filter((card) => card.weather === weatherType())
+            .filter((card) => card.weather === getWeatherType())
             .map((item) => (
               <ItemCard
                 key={item._id}

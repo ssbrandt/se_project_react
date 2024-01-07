@@ -1,7 +1,7 @@
 import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LogInModal = ({ isOpen, onLogIn, onCloseModal }) => {
+const LogInModal = ({ isOpen, onLogIn, onCloseModal, onSignUpRedirect }) => {
   const [email, setEmail] = React.useState("");
 
   const handleEmailChange = (e) => {
@@ -62,6 +62,13 @@ const LogInModal = ({ isOpen, onLogIn, onCloseModal }) => {
           onChange={handlePasswordChange}
         ></input>
       </fieldset>
+      <button
+        type="button"
+        className="form__redirect"
+        onClick={onSignUpRedirect}
+      >
+        or Register
+      </button>
     </ModalWithForm>
   );
 };

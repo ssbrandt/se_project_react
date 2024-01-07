@@ -124,3 +124,31 @@
   opacity: 0.8;
   cursor: pointer;
 }
+
+.form__redirect {
+  all: unset;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  opacity: 50%;
+  margin-left: 12px;
+}
+
+.form__redirect-hidden {
+  visibility: hidden;
+}
+
+.form__redirect-visible {
+  visibility: visible;
+}
+
+.form__submit-options {
+  display: flex;
+}
+
+.form__redirect {
+  position: absolute;
+  bottom: 42px;
+  left: 150px;
+}
