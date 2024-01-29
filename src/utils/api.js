@@ -1,6 +1,6 @@
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "http://api.ssbwtwr.surfnet.ca"
+    ? "https://api.ssbwtwr.surfnet.ca"
     : "http://localhost:3001";
 
 const checkResponse = (res) => {
